@@ -1,0 +1,20 @@
+---
+- name: Remove old toolchain
+  become: true
+  file:
+    path: "{{ perl_toolchain_final_dest }}"
+    state: absent
+  when:
+    - toolchain_archive_contents.changed
+
+- name: Move perl directory from tmp to opt
+  become: true
+  command: mv /tmp/perl {{ perl_toolchain_final_dest }}
+  when:
+    - toolchain_archive_contents.changed
+
+- name: Create version file
+  become: true
+  copy:
+    content: "{{ perl_toolchain_sha }}"
+    dest: "{{ perl_toolchain_final_dest }}/toolchain_version"

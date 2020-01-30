@@ -1,0 +1,4 @@
+---
+perl_toolchain_final_dest: /opt/perl
+perl_toolchain_sha: 229083e31a7a6a2a3d465f51de78b10219b94c2a
+perl_toolchain_url: https://s3.amazonaws.com/boxes.10gen.com/build/toolchain-drivers/mongo-perl-driver/perl-toolchain-{{ ansible_distribution | lower | replace('redhat', 'rhel') }}{{ ansible_distribution_version | replace('.', '') }}-{{ perl_toolchain_sha }}.tar.gz

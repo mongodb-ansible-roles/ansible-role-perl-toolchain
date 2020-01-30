@@ -1,0 +1,28 @@
+---
+dependencies:
+  - role: ansible-role-toolchain
+    vars:
+      toolchain_url: "{{ perl_toolchain_url }}"
+      toolchain_version: "{{ perl_toolchain_sha }}"
+      toolchain_final_dest: "{{ perl_toolchain_final_dest }}"
+galaxy_info:
+  author: MongoDB
+  role_name: perl-toolchain
+  description: Installs the perl toolchain
+  license: Apache
+  min_ansible_version: 2.8
+  platforms:
+    - name: debian
+      versions:
+        - buster
+        - stretch
+    - name: el
+      versions:
+        - 6
+        - 7
+    - name: ubuntu
+      versions:
+        - xenial
+        - bionic
+  galaxy_tags:
+    - perltoolchain
